@@ -5,6 +5,7 @@ const UserSchema = z.object({
   age: z.number().optional(),
   dateOfBirth: z.date().optional(),
   isProgramming: z.boolean().optional(),
+  null: z.null().optional(),
 });
 
 type User = z.infer<typeof UserSchema>;
