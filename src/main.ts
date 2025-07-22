@@ -5,9 +5,10 @@ const UserSchema = z.object({
   age: z.number().default(Math.random()),
   dateOfBirth: z.date().optional(),
   isProgramming: z.boolean().nullish().default(true),
+  hobby: z.enum(['Programming', 'Walking', 'Sleeping']),
 });
 
 type User = z.infer<typeof UserSchema>;
 
-const user: User = { username: 'dasdf' };
-console.log(UserSchema.safeParse(user).data);
+const user: User = { username: 'dasdf', hobby: 'Programming' };
+console.log(UserSchema.parse(user));
