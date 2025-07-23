@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-const Hobbies = ['Programming', 'Walking', 'Sleeping'];
+const Hobbies = ['Programming', 'Walking', 'Sleeping'] as const;
 
 const UserSchema = z.object({
   username: z.string().min(3).max(5),
