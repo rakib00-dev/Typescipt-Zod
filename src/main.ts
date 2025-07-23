@@ -1,15 +1,9 @@
 import { z } from 'zod';
 
-const Hobbies = ['Programming', 'Walking', 'Sleeping'] as const;
+const useMap = z.record(z.string(), z.string());
 
-const UserSchema = z.object({
-  id: z.string().or(z.number()),
-  // id: z.union([z.string(), z.number()]),
-});
-
-type User = z.infer<typeof UserSchema>;
-
-const user: User = {
-  id: 1,
+const user = {
+  asdfasdfkl: 'asdlfjkasd',
+  po2eiwrusd: '234',
 };
-console.log(UserSchema.parse(user));
+console.log(useMap.parse(user));
