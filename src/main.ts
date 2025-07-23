@@ -10,14 +10,11 @@ const UserSchema = z
     isProgramming: z.boolean().nullish().default(true),
     hobby: z.enum(Hobbies),
   })
-  .omit({ username: true });
+  .pick({ username: true });
 
 type User = z.infer<typeof UserSchema>;
 
 const user: User = {
-  age: 2,
-  dateOfBirth: new Date(),
-  isProgramming: true,
-  hobby: 'Programming',
+  username: 'rakib',
 };
 console.log(UserSchema.parse(user));
