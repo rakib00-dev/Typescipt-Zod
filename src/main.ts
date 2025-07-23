@@ -1,6 +1,9 @@
 import { z } from 'zod';
 
-const promiseSchema = z.promise(z.string());
+const brandEmail = z
+  .string()
+  .refine((val) => val.endsWith('@rakibdeveloper.com'), {
+    error: 'Email Must End @rakibdeveloper.com',
+  });
 
-const promise = Promise.resolve('sdf');
-console.log(promiseSchema.parseAsync(promise));
+console.log(brandEmail.parse('geasdflo@rakibdeveloper.com'));
