@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-const useMap = z.map(z.string(), z.object({ name: z.string() }));
+const promiseSchema = z.promise(z.string());
 
-const user = new Set([1, 1, 1, 2, 3]);
-console.log(user);
+const promise = Promise.resolve('sdf');
+console.log(promiseSchema.parseAsync(promise));
