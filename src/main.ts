@@ -10,7 +10,8 @@ const UserSchema = z
     isProgramming: z.boolean().nullish().default(true),
     hobby: z.enum(Hobbies),
   })
-  .pick({ username: true });
+  .extend({ name: z.string(), arr: z.array(z.string()) })
+  .partial();
 
 type User = z.infer<typeof UserSchema>;
 
