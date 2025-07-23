@@ -1,10 +1,6 @@
 import { z } from 'zod';
 
-enum Hobbies {
-  Programming = 'coding',
-  Walking,
-  Sleeping,
-}
+const Hobbies = ['Programming', 'Walking', 'Sleeping'];
 
 const UserSchema = z.object({
   username: z.string().min(3).max(5),
@@ -20,6 +16,6 @@ const user: User = {
   username: 'dasdf',
   dateOfBirth: new Date(),
   isProgramming: true,
-  hobby: Hobbies.Programming,
+  hobby: 'Programming',
 };
 console.log(UserSchema.parse(user));
